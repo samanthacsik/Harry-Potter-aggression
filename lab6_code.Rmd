@@ -15,3 +15,24 @@ library(tidyverse)
 hp_data <- read_csv("harry_potter_aggression_full.csv")
 ```
 I am in lab week 6!
+
+1. stage - stage by checking all under "Git" tab (upper right)
+2. commit - add commit message (so you can reference this later on!) and click commit
+3. pushing - press push; actually sends it back to github
+
+
+2. Basic wrangling and make a graph of Harry Potter and Draco Malfoy aggression rates
+
+```{r}
+hp_graph <- hp_data %>% 
+  filter(Name == "Harry" | Name == "Draco Malfoy") %>% 
+  select(Name, book, agg.per.mention) %>% 
+  ggplot(aes(x = book, y = agg.per.mention)) +
+  geom_col(aes(fill = Name), position = "dodge") + # "dodge" = clustered coloumn graph and not stacked
+  coord_flip() +
+  theme_bw()
+
+# look up how to change default that causes column to take over whole thing when there are 0s recorded for draco malfoy
+  
+```
+

@@ -132,6 +132,21 @@ $(document).ready(function () {
 <li>Load packages and read in data</li>
 </ol>
 <p>I am in lab week 6!</p>
+<ol style="list-style-type: decimal">
+<li>stage - stage by checking all under “Git” tab (upper right)</li>
+<li>commit - add commit message (so you can reference this later on!) and click commit</li>
+<li><p>pushing - press push; actually sends it back to github</p></li>
+<li><p>Basic wrangling and make a graph of Harry Potter and Draco Malfoy aggression rates</p></li>
+</ol>
+<pre class="r"><code>hp_graph &lt;- hp_data %&gt;% 
+  filter(Name == &quot;Harry&quot; | Name == &quot;Draco Malfoy&quot;) %&gt;% 
+  select(Name, book, agg.per.mention) %&gt;% 
+  ggplot(aes(x = book, y = agg.per.mention)) +
+  geom_col(aes(fill = Name), position = &quot;dodge&quot;) + # &quot;dodge&quot; = clustered coloumn graph and not stacked
+  coord_flip() +
+  theme_bw()
+
+# look up how to change default that causes column to take over whole thing when there are 0s recorded for draco malfoy</code></pre>
 
 
 
