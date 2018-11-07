@@ -36,3 +36,4 @@ hp_graph <- hp_data %>%
   
 ```
 
+I love lobster and I'm excited to have an assignment on them for this class
